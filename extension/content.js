@@ -15,7 +15,7 @@ browser.storage.local.get("enabled").then((data) => {
         const video = document.querySelector('.html5-video-container video.html5-main-video');
 
         if (!video) {
-            if (retry < 10) setTimeout(() => pauseFeaturedVideoIfPlaying(retry + 1), 500);
+            if (retry < 40) setTimeout(() => pauseFeaturedVideoIfPlaying(retry + 1), 500);
             return;
         }
 
@@ -27,7 +27,7 @@ browser.storage.local.get("enabled").then((data) => {
             video.pause();
             alreadyPaused = true;
             console.log("YT featured video autopaused.");
-        } else if (!alreadyPaused && retry < 10) {
+        } else if (!alreadyPaused && retry < 40) {
             setTimeout(() => pauseFeaturedVideoIfPlaying(retry + 1), 500);
         }
     }
